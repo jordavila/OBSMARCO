@@ -133,7 +133,7 @@ html, body {
   font-size: 14px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  box-shadow: 0 0 5px #ffea00;
+  box-shadow: 0 0 15px #ffea00;
   z-index: 3;
 
   display: flex;
