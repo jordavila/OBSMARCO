@@ -1,0 +1,151 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  overflow: hidden;
+  height: 100%;
+}
+
+.frame-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 640px;
+  height: 480px;
+  transform: translate(-50%, -50%);
+  background: transparent;
+}
+
+.frame {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 10px solid;
+  border-image: linear-gradient(to bottom, #ffcc00, #d4af37, #ffcc00) 1;
+  box-shadow: 0 0 12px #ffcc00;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+/* BEAMS - Luz animada en 4 direcciones */
+.beam {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* TOP beam - izquierda a derecha */
+.beam.top {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(to right, transparent, white 50%, transparent);
+  background-size: 200% 100%;
+  animation: beam-move-top 4s linear infinite;
+  animation-delay: 0s;
+}
+
+/* RIGHT beam - arriba a abajo */
+.beam.right {
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, white 50%, transparent);
+  background-size: 100% 200%;
+  animation: beam-move-right 4s linear infinite;
+  animation-delay: 1s;
+}
+
+/* BOTTOM beam - derecha a izquierda */
+.beam.bottom {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(to left, transparent, white 50%, transparent);
+  background-size: 200% 100%;
+  animation: beam-move-bottom 4s linear infinite;
+  animation-delay: 2s;
+}
+
+/* LEFT beam - abajo a arriba */
+.beam.left {
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 100%;
+  background: linear-gradient(to top, transparent, white 50%, transparent);
+  background-size: 100% 200%;
+  animation: beam-move-left 4s linear infinite;
+  animation-delay: 3s;
+}
+
+/* Animaciones individuales para cada dirección */
+@keyframes beam-move-top {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes beam-move-right {
+  0% {
+    background-position: 0 -100%;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+@keyframes beam-move-bottom {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+@keyframes beam-move-left {
+  0% {
+    background-position: 0 100%;
+  }
+  100% {
+    background-position: 0 -100%;
+  }
+}
+
+/* Pestaña con nombre */
+.name-tab {
+  position: absolute;
+  top: -30px;
+  right: 0;
+  padding: 5px 15px;
+  background: linear-gradient(to right, #d4af37, #ffcc00);
+  color: black;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  box-shadow: 0 0 5px #ffea00;
+  z-index: 3;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden; /* evita que la imagen crezca fuera */
+}
+
+.tab-icon {
+  width: 20px;         /* espacio reservado */
+  height: 20px;
+  transform: scale(1.6); /* agranda visualmente sin ocupar más espacio */
+  transform-origin: center center;
+  pointer-events: none;
+}
